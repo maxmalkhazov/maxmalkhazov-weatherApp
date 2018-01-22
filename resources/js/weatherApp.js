@@ -69,7 +69,7 @@ function inputLocation() {
 		var lat = position.coords.latitude;
 		var long = position.coords.longitude;
 		var myRequest = new XMLHttpRequest();
-		myRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&units=imperial&appid=34fb6e34f6b56c480b19f84502d25032");
+		myRequest.open("GET", "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&units=imperial&appid=34fb6e34f6b56c480b19f84502d25032");
 
 		myRequest.onload = function() {
 			var myData = JSON.parse(myRequest.responseText);
@@ -90,7 +90,7 @@ function inputLocation() {
 
 function userInput() {
     var myRequest = new XMLHttpRequest();
-	myRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?q=" + userLocInput + "&units=imperial&appid=34fb6e34f6b56c480b19f84502d25032");
+	myRequest.open("GET", "https://api.openweathermap.org/data/2.5/weather?q=" + userLocInput + "&units=imperial&appid=34fb6e34f6b56c480b19f84502d25032");
 
 	myRequest.onload = function() {
 		var myData = JSON.parse(myRequest.responseText);
