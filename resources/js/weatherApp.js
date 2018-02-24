@@ -29,18 +29,16 @@ var outputLocation = document.querySelector(".output-location"),
     wind = document.querySelector("#wind"),
     mist = document.querySelector("#mist");
  
+
 init();
 
-inputLocation();
-
-
-
-
+// USER MANUAL LOCATION INPUT BUTTON
 btnInput.addEventListener("click", function() {
 	userLocInput = document.querySelector(".user-location-input").value;
     userInput();
 });
 
+// KEYPRESS EVENT WHEN USER ENTERS LOCATION INPUT
 document.addEventListener("keypress", function(event) {
 	if (event.keyCode === 13 || event.which === 13) {
 		userLocInput = document.querySelector(".user-location-input").value;
@@ -49,25 +47,28 @@ document.addEventListener("keypress", function(event) {
 	}
 });
 
+// USE MY LOCATION BUTTON
 myLocation.addEventListener("click", function() {
     inputLocation();
 });
 
+// CONVERT TO IMPERIAL BUTTON
 btnFarenheit.addEventListener("click", function() {
     toImperial();
 });
 
-
-
+// CONVERT TO METRIC BUTTON
 btnCelcius.addEventListener("click", function() {
 	toMetric();
 });
 
 
 function inputLocation() {
+	// GET USER'S LOCATION BY LAT. AND LONG.
     navigator.geolocation.getCurrentPosition(function(position) {
 		var lat = position.coords.latitude;
 		var long = position.coords.longitude;
+		// USE USER'S LAT. AND LONG. INSIDE THE API
 		var myRequest = new XMLHttpRequest();
 		myRequest.open("GET", "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&units=imperial&appid=34fb6e34f6b56c480b19f84502d25032");
 
@@ -76,7 +77,8 @@ function inputLocation() {
 			renderWeather(myData);
 			renderDates(myData);
 			iconDisplay(myData);
-
+			
+            // CONVERT TO IMPERIAL BY DEFAULT
 			tempFormat.textContent = "F";
             btnFarenheit.classList.add("selected");
             btnCelcius.classList.remove("selected");
@@ -89,6 +91,7 @@ function inputLocation() {
 }
 
 function userInput() {
+	// GET USER'S CITY INPUT AND USE INSIDE THE API
     var myRequest = new XMLHttpRequest();
 	myRequest.open("GET", "https://api.openweathermap.org/data/2.5/weather?q=" + userLocInput + "&units=imperial&appid=34fb6e34f6b56c480b19f84502d25032");
 
@@ -96,22 +99,24 @@ function userInput() {
 		var myData = JSON.parse(myRequest.responseText);
 		renderWeather(myData);
 		iconDisplay(myData);
-
-		lat = myData.coord.lat;
-		long = myData.coord.lon;
+		
+        // GET LAT. AND LONG. FROM THE CURRENT WEATHER API AND USE IN GOOGLE API
+		var lat = myData.coord.lat;
+		var long = myData.coord.lon;
 		var geoRequest = new XMLHttpRequest();
 		geoRequest.open("GET", "https://maps.googleapis.com/maps/api/timezone/json?location=" + lat + "," + long + "&timestamp=1331161200&key=AIzaSyAraYpKJY-RQjtaXMfEuXED_AJBsSJqCEA");
 
 	    geoRequest.onload = function() {
 	    	var geoData = JSON.parse(geoRequest.responseText);
 	    	console.log(geoData);
-
+	    	
+            // GET TIME ZONE ID FROM GOOGLE'S API TO DETERMINE USER'S TIMEZONE
 	    	var timeZoneId = geoData.timeZoneId;
+	    	// DETERMINE REALATIVE SUNRISE AND SUNSET TIMES
 	    	var sunrise = new Date(1000 * myData.sys.sunrise);
 			var sunset = new Date(1000 * myData.sys.sunset);
 			var sunrisestr = sunrise.toUTCString();
 			var sunsetstr = sunset.toUTCString();
-
 			var offsetSunrise = moment.tz(sunrisestr, timeZoneId);
 			var localSunrise = offsetSunrise.format("HH:mm");
 			var offsetSunset = moment.tz(sunsetstr, timeZoneId);
@@ -120,24 +125,20 @@ function userInput() {
             outputSunrise.textContent = localSunrise;
             outputSunset.textContent = localSunset;
 
+            // SET IMPERIAL BY DEFAULT
             tempFormat.textContent = "F";
             btnFarenheit.classList.add("selected");
             btnCelcius.classList.remove("selected");
 
             mphKph.textContent = "mph";
 
-
-
-	    	console.log(timeZoneId);
-	    	console.log(sunrisestr);
 	    }
 	    geoRequest.send();
 	}
-
 	myRequest.send();
 }
 
-
+// DISPLAY MAIN WEATHER DATA
 function renderWeather(data) {
 	outputLocation.textContent = data.name + ", " + data.sys.country;
 	outputTemp.textContent = Math.round(data.main.temp);
@@ -149,6 +150,7 @@ function renderWeather(data) {
    
 }
 
+// DISPLAY LOCAL SUNRISE AND SUNSET TIMES
 function renderDates(data) {
 	var sunrise = new Date(1000 * data.sys.sunrise);
 	var sunset = new Date(1000 * data.sys.sunset);
@@ -158,7 +160,7 @@ function renderDates(data) {
 	
 }
 
-// icon change
+// CHANGE WEATHER ICON ACCORDING TO CURRENT WEATHER ID
 function iconDisplay(data) {
 	var dayOrNight;
 	var time = Date.now().toString();
@@ -288,6 +290,7 @@ function iconDisplay(data) {
 }
 
 function init() {
+	inputLocation();
 	clearSky.style.display = "none";
 	nightClearSky.style.display = "none";
 	nightClouds.style.display = "none";
@@ -347,8 +350,3 @@ function toMetric() {
 }
 
 
-
-
-// background image
-// error handling
-// mobile version

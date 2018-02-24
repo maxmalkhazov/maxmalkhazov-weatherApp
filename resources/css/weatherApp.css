@@ -8,7 +8,7 @@
 body {
 	background: url(https://images.unsplash.com/photo-1505699261378-c372af38134c?auto=format&fit=crop&w=1500&q=80);
     background-size: cover;
-    background-position: center; 
+    background-position: center no-repeat; 
     color: #fff;
     font-family: Roboto, Arial, sans-serif;
 }
@@ -57,9 +57,10 @@ html {
 /*======USER INPUT BUTTONS======*/
 
 .my-location {
+	border-radius: 15px;
 	text-decoration: none;
 	font-size: 1.2rem;
-	padding: .25rem 1rem;
+	padding: .5rem 1.25rem;
 	background-color: #e67e22;
 	color: #fff;
 	margin-bottom: 20px;
@@ -72,12 +73,14 @@ html {
 }
 
 .btn-input {
+	border-radius: 15px;
 	text-decoration: none;
 	font-size: 1.2rem;
-	padding: .25rem 1rem;
+	padding: .5rem 1.25rem;
 	background-color: #e67e22;
 	color: #fff;
 	margin-bottom: 20px;
+	margin-left: 10px;
 	border: none;
 	font-weight: 300;
 	cursor: pointer;
