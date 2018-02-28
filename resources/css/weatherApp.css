@@ -70,6 +70,7 @@ html {
 	cursor: pointer;
 	outline: none;
 	transition: background-color 0.2s;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
 }
 
 .btn-input {
@@ -86,6 +87,7 @@ html {
 	cursor: pointer;
 	outline: none;
 	transition: background-color 0.2s;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
 }
 
 .btn-input:hover,
@@ -160,6 +162,7 @@ html {
 	font-size: 1.5rem;
 	color: #fff;
 	font-weight: 300;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, .6);
 }
 
 .wind {
@@ -175,6 +178,7 @@ html {
 	font-size: 1.5rem;
 	color: #fff;
 	font-weight: 300;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, .6);
 }
 
 .humidity {
@@ -189,6 +193,7 @@ html {
 	font-size: 1.5rem;
 	font-weight: 300;
 	color: #fff;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, .6);
 }
 
 /*======SUNSRISE/SUNSET=====*/
