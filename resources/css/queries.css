@@ -26,7 +26,7 @@
 		height: 37.5px;
 	}
 	.minmax {font-size: .7rem; width: 75px; height: 37.5px;}
-	.weather-additional {margin-top: 15px; margin-bottom: 15px;}
+	.weather-additional {margin-top: 30px; padding-bottom: 30px;}
 	.sunset, .sunrise {margin-left: 20px; margin-right: 20px; font-size: 1.2rem;}
 	.ion-waterdrop, .ion-flag, .ion-umbrella {padding-right: 2px;}
 	.ion-ios-arrow-thin-up, .ion-ios-arrow-thin-down, .ion-ios-sunny {font-size: 1.2rem;}

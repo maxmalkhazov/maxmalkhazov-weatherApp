@@ -57,10 +57,10 @@ html {
 /*======USER INPUT BUTTONS======*/
 
 .my-location {
-	border-radius: 15px;
+	/*border-radius: 15px;*/
 	text-decoration: none;
-	font-size: 1.2rem;
-	padding: .5rem 1.25rem;
+	font-size: 1rem;
+	/*padding: .5rem 1.25rem;*/
 	background-color: #e67e22;
 	color: #fff;
 	margin-bottom: 20px;
@@ -68,17 +68,32 @@ html {
 	font-weight: 300;
 	margin-right: 10px;
 	cursor: pointer;
-	outline: none;
-	transition: background-color 0.2s;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+	/*outline: none;*/
+	/*transition: background-color 0.2s;*/
+	/*box-shadow: 0 2px 4px rgba(0, 0, 0, .3);*/
+	
+	text-transform: uppercase;
+	/*text-decoration: none;*/
+	color: #fff;
+	background: #0984e3;
+	/*margin-left: 1rem;*/
+	padding: 1rem 2.5rem;
+	display: inline-block;
+	border-radius: 6.25rem;
+	transition: all .2s;
+	/*position: relative;*/
+	
+	/*// change for the <button> element*/
+	/*border: none;*/
+	/*cursor: pointer;*/
 }
 
 .btn-input {
-	border-radius: 15px;
+	/*border-radius: 15px;*/
 	text-decoration: none;
-	font-size: 1.2rem;
-	padding: .5rem 1.25rem;
-	background-color: #e67e22;
+	font-size: 1rem;
+	/*padding: .5rem 1.25rem;*/
+	/*background-color: #e67e22;*/
 	color: #fff;
 	margin-bottom: 20px;
 	margin-left: 10px;
@@ -86,18 +101,37 @@ html {
 	font-weight: 300;
 	cursor: pointer;
 	outline: none;
-	transition: background-color 0.2s;
+	/*transition: background-color 0.2s;*/
 	box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+	
+	text-transform: uppercase;
+	/*text-decoration: none;*/
+	color: #fff;
+	background: #0984e3;
+	/*margin-left: 1rem;*/
+	padding: 1rem 2.5rem;
+	display: inline-block;
+	border-radius: 6.25rem;
+	transition: all .2s;
+	/*position: relative;*/
+	
+	/*// change for the <button> element*/
+	/*border: none;*/
+	/*cursor: pointer;*/
 }
 
 .btn-input:hover,
 .my-location:hover {
-	background-color: #cf6d17;
+	transform: translateY(-3px);
+	box-shadow: 0 .625rem 1.25rem rgba(0, 0, 0, .2);
+	background: #065ea2;
 }
 
 .btn-input:active,
 .my-location:active {
-	background-color: #e67e22;
+	outline: none;
+	transform: translateY(-1px);
+	box-shadow: 0 .3rem .625rem rgba(0, 0, 0 .2);
 }
 
 /*========HEAD DISPLAY========*/

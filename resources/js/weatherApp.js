@@ -36,6 +36,7 @@ init();
 btnInput.addEventListener("click", function() {
 	userLocInput = document.querySelector(".user-location-input").value;
     userInput();
+    document.querySelector(".user-location-input").value = "";
 });
 
 // KEYPRESS EVENT WHEN USER ENTERS LOCATION INPUT
